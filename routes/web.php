@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ShowBlogController;
@@ -16,3 +17,5 @@ use App\Http\Controllers\ShowBlogController;
 */
 
 Route::get('/', [ShowBlogController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'getLogin']);
