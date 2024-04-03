@@ -5,6 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Blog;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,11 +16,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(1)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'Tridiktya Putra',
+            'email' => 'tridiktya@mail.id',
+            'password' => bcrypt('tridik12')
+        ]);
+
+        Category::create([
+            'category_name' => "Product Design",
+            'category_slug' => "product-design"
+        ]);
+
+        Category::create([
+            'category_name' => "Web Design",
+            'category_slug' => "web-design"
+        ]);
+
+        Category::create([
+            'category_name' => "Graphic Design",
+            'category_slug' => "graphic-design"
+        ]);
+
+        Blog::Create([
+            'user_id' => 1,
+            'category_id' => 2,
+            'title' => "How to Create Modal in Figma",
+            'body'=> "This is how you create a modal in Figma, five steps that you have to do are..."
+        ]);
     }
 }
