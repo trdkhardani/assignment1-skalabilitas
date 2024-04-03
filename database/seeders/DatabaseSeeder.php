@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Blog::Create([
-            'user_id' => 1,
+            'user_id' => 2,
             'category_id' => 2,
             'title' => "How to Create Modal in Figma",
             'body'=> "This is how you create a modal in Figma, five steps that you have to do are..."
