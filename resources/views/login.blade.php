@@ -32,18 +32,35 @@
 </style>
 
 <body>
+    @if (session()->has('loginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="container">
         <div class="login-form">
             <h2>Login</h2>
             <form action="/login" method="post">
+                @csrf
                 <div class="form-group">
                     <label for="username">Email</label>
-                    <input type="email" class="form-control" id="username" name="username" required>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
+                @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }} {{-- secara otomatis akan menampilkan pesan error dari validasi yang kita buat di controller --}}
+                    </div>
+                @enderror
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
+                @error('password')
+                    <div class="invalid-feedback">
+                        {{ $message }} {{-- secara otomatis akan menampilkan pesan error dari validasi yang kita buat di controller --}}
+                    </div>
+                @enderror
                 <button type="submit" class="btn btn-primary btn-login">Login</button>
             </form>
         </div>
