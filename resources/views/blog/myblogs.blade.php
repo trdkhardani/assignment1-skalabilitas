@@ -25,7 +25,7 @@
                         <a href="/edit-blog/{{ $blog->id }}" class="btn btn-primary">Edit</a>
                         <form action="/delete-blog/{{ $blog->id }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this blog?')">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete `{{ $blog->title }}` blog?')">Delete</button>
                         </form>
                     </div>
                 </li>

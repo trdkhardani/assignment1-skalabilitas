@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Blog;
+use App\Models\Category;
 
 class EditBlogController extends Controller
 {
@@ -21,6 +22,7 @@ class EditBlogController extends Controller
             'blog.edit',
             [
                 'blog' => $blog,
+                'categories' => Category::all(),
             ]
         );
     }

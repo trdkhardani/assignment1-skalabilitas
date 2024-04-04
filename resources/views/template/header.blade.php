@@ -17,20 +17,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 @auth
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add-blog">Add Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/my-blogs">My Blogs</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+                            <a class="nav-link" href="/add-blog">Add Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/my-blogs">My Blogs</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Hello, {{ auth()->user()->name }}</a>
                         </li>
                         <li class="nav-item">
                             <form action="/logout" method="post">
@@ -40,9 +37,11 @@
                             </form>
                         </li>
                     @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
+                        <ul class="navbar nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                        </ul>
                         @endif
                     </ul>
                 </div>

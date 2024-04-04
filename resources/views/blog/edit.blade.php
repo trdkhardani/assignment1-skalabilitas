@@ -17,7 +17,13 @@
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Category:</label>
-            <input value="{{ $blog->category_id }}" type="number" min="0" id="category_id" name="category_id" class="form-control">
+            <select class="form-select" name="category_id" id="category_id">
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}" {{ $blog->category_id == $category->id ? 'selected' : '' }}>
+                    {{ $category->category_name }}
+                </option>
+            @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="body" class="form-label">Body:</label>

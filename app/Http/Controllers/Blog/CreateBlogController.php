@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CreateBlogController extends Controller
 {
     public function getCreate()
     {
-        return view('blog.create');
+        return view('blog.create', [
+            'categories' => Category::all(),
+        ]);
     }
 
     public function postCreate(Request $request)
